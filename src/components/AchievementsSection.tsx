@@ -134,7 +134,7 @@ const AchievementsSection = () => {
                                 ✕
                             </button>
 
-                            <div className="relative w-[90wh]  h-[60vh] sm:h-[70vh] rounded-xl overflow-hidden border border-slate-700 shadow-2xl">
+                            <div className="relative w-[60wh]  h-[60vh] sm:h-[70vh] rounded-xl overflow-hidden border border-slate-700 shadow-2xl">
                                 <Image
                                     src={selectedImage.image}
                                     alt={selectedImage.title}
