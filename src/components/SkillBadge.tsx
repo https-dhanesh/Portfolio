@@ -2,7 +2,7 @@
 import { Badge } from "@/components/ui/badge";
 import {FaJava, FaHtml5, FaReact, FaNodeJs, FaDocker, FaAws, FaGitAlt, FaGithub} from "react-icons/fa";
 import { 
-  SiJavascript, SiTypescript, SiExpress, SiNextdotjs, SiFlask, SiTailwindcss, SiPostgresql, SiMysql, SiFirebase, SiSqlite, SiVercel, SiRender, SiKubernetes 
+  SiJavascript, SiTypescript, SiExpress, SiNextdotjs, SiFlask, SiTailwindcss,SiMongodb, SiPostgresql, SiMysql, SiFirebase, SiSqlite, SiVercel, SiRender, SiKubernetes , SiPython 
 } from "react-icons/si";
 
 const getSkillIcon = (skillName: string) => {
@@ -10,8 +10,6 @@ const getSkillIcon = (skillName: string) => {
   switch (skillName.toLowerCase()) {
     case "java":
       return <FaJava size={size} className="text-red-500" />;
-    case "python":
-      return <SiJavascript size={size} className="text-yellow-400" />; 
     case "javascript":
       return <SiJavascript size={size} className="text-yellow-400" />;
     case "typescript":
@@ -20,8 +18,16 @@ const getSkillIcon = (skillName: string) => {
       return <SiPostgresql size={size} className="text-blue-400" />; 
     case "html/css":
       return <FaHtml5 size={size} className="text-orange-500" />;
-    case "bash":
-      return <SiKubernetes size={size} className="text-gray-400" />;
+    case "kubernetes":
+      return <SiKubernetes size={size} className="text-blue-700" />;
+    case "python":
+      return (
+    <img
+      src="/python_logo.svg"
+      alt="Python"
+      width={15}
+    />
+  );
 
     case "react.js":
       return <FaReact size={size} className="text-cyan-400" />;
@@ -44,6 +50,8 @@ const getSkillIcon = (skillName: string) => {
       return <SiFirebase size={size} className="text-yellow-500" />;
     case "sqlite":
       return <SiSqlite size={size} className="text-blue-600" />;
+    case "mongodb":
+      return <SiMongodb size={size} className="text-green-600" />;
 
     case "aws":
       return <FaAws size={size} className="text-orange-400" />;

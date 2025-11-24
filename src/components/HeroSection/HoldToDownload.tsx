@@ -68,6 +68,11 @@ const HoldToDownloadButton = () => {
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUpOrLeave}
         onMouseLeave={handleMouseUpOrLeave}
+
+        onTouchStart={handleMouseDown}
+        onTouchEnd={handleMouseUpOrLeave}
+        onTouchCancel={handleMouseUpOrLeave}
+        
       >
         <div className="absolute inset-0 w-full h-full pt-3 ml-2 pointer-events-none">
           <svg className="w-full h-full" viewBox="0 0 100 100">
