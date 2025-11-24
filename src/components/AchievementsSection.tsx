@@ -125,7 +125,7 @@ const AchievementsSection = () => {
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ scale: 0.8, opacity: 0 }}
                             transition={{ duration: 0.3 }}
-                            className="relative max-w-4xl w-[90wh]"
+                            className="relative max-w-4xl w-full"
                         >
                             <button
                                 onClick={() => setSelectedImage(null)}
@@ -134,7 +134,7 @@ const AchievementsSection = () => {
                                 ✕
                             </button>
 
-                            <div className="relative w-full h-[60vh] sm:h-[70vh] rounded-xl overflow-hidden border border-slate-700 shadow-2xl">
+                            <div className="relative mr-10 w-full h-[60vh] sm:h-[70vh] rounded-xl overflow-hidden border border-slate-700 shadow-2xl">
                                 <Image
                                     src={selectedImage.image}
                                     alt={selectedImage.title}
@@ -143,7 +143,7 @@ const AchievementsSection = () => {
                                 />
                             </div>
 
-                            <div className="mt-5 bg-slate-800/40 p-5 rounded-xl border border-slate-700">
+                            <div className="mt-5 mr-10 bg-slate-800/40 p-5 rounded-xl border border-slate-700">
                                 <h3 className="text-xl font-semibold text-white mb-2">
                                     {selectedImage.title}
                                 </h3>
