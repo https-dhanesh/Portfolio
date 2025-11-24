@@ -1,103 +1,169 @@
-import Image from "next/image";
+"use client";
+
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import ProjectsSection from "@/components/ProjectsSection";
+import ContactSection from "@/components/ContactSection";
+import { AnimatedSection } from "@/components/AnimatedSection";
+import SkillsSection from "@/components/SkillsSection";
+import ExperienceSection from "@/components/ExperienceSection";
+import EducationSection from "@/components/EducationSection";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import ScrambleText from "@/components/HeroSection/ScrambleText";
+import FlippingText from "@/components/HeroSection/FlippingText";
+import HoldToDownloadButton from "@/components/HeroSection/HoldToDownload";
+import AchievementsSection from "@/components/AchievementsSection";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    e.currentTarget.style.setProperty("--mouse-x", `${x}px`);
+    e.currentTarget.style.setProperty("--mouse-y", `${y}px`);
+  };
+  return (
+    <main>
+      <section id="hero"
+        className="min-h-screen flex items-center justify-center bg-slate-900 py-20 lg:py-0 relative overflow-hidden hero-spotlight"
+        onMouseMove={handleMouseMove}
+      >
+        <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-10">
+
+          <motion.div
+            className="text-center md:text-left px-4"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <h1 className="text-4xl md:text-6xl font-extrabold text-white">
+              <span className="text-red-500">
+                <ScrambleText text="Hello, I'm" />
+              </span>
+              <br />
+              <ScrambleText text="Dhanesh Shingade" />
+            </h1>
+            <FlippingText />
+
+            <p className="text-md md:text-lg text-gray-400 mt-4 max-w-xl">
+              I build high-performance, scalable web applications and enjoy automating the infrastructure they run on.
+            </p>
+
+            <div className="mt-8 flex justify-center md:justify-start gap-4">
+              <Button asChild size="lg" className="bg-red-600 hover:bg-red-700">
+                <Link href="/#contact">Contact Me</Link>
+              </Button>
+              <HoldToDownloadButton />
+            </div>
+
+            <div className="mt-12 flex justify-center md:justify-start gap-4">
+              <motion.div
+                whileHover={{ scale: 1.2, rotate: 10 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <Link href="https://github.com/https-dhanesh" target="_blank" className="text-gray-400 hover:text-red-500 transition-colors">
+                  <FaGithub className="h-8 w-8" />
+                </Link>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.2, rotate: -10 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <Link href="https://linkedin.com/in/dhanesh-shingade-57954124b" target="_blank" className="text-gray-400 hover:text-red-500 transition-colors">
+                  <FaLinkedin className="h-8 w-8" />
+                </Link>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="flex items-center justify-center"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeInOut" }}
           >
-            Read our docs
-          </a>
+            <div 
+              className="
+                relative 
+                w-80 h-80 md:w-96 md:h-96 
+                rounded-full 
+                border-4 border-red-500 
+                bg-slate-800
+                group 
+              "
+            >
+              <img 
+                src="/Passport photo.jpg"
+                alt="Dhanesh Shingade" 
+                className="
+                  w-full h-full 
+                  object-cover 
+                  rounded-full 
+                  p-2 
+                  transition-all duration-500 
+                  group-hover:opacity-5
+                  group-hover:blur-sm
+                " 
+              />
+              
+              <div 
+                className="
+                  absolute inset-0 
+                  flex items-center justify-center 
+                  p-8 text-center 
+                  opacity-0 group-hover:opacity-100 
+                  transition-opacity duration-500
+                "
+              >
+                <div className="text-white">
+                  <h4 className="font-bold text-red-500 text-sm uppercase tracking-widest mb-4">
+                    CHARACTER STATS
+                  </h4>
+                  <p className="text-md text-gray-200 text-left font-mono tracking-tighter">
+                    Problem Solving: 10/10<br />
+                    Adaptability: 10/10<br />
+                    Bugs Squashed: 1000+<br />
+                    Teamwork: 9/10<br />
+                    Curiosity: 10/10<br />
+                    Code Quality: (OCD-level)<br />
+                    Coffee Intake: 11/10
+                  </p>
+                </div>
+
+              </div>
+            </div>
+          </motion.div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      <AnimatedSection>
+        <section className="w-full py-20 lg:py-32  border-t border-slate-700">
+          <div className="container mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <ExperienceSection />
+            <EducationSection />
+          </div>
+        </section>
+      </AnimatedSection>
+
+      <AnimatedSection>
+        <ProjectsSection />
+      </AnimatedSection>
+
+      <AnimatedSection>
+        <SkillsSection />
+      </AnimatedSection>
+
+      <AnimatedSection>
+        <AchievementsSection />
+      </AnimatedSection>
+
+      <AnimatedSection>
+        <ContactSection />
+      </AnimatedSection>
+    </main>
   );
 }
