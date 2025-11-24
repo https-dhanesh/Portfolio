@@ -10,6 +10,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 import { FaGithub } from "react-icons/fa";
 import { LuExternalLink } from "react-icons/lu";
 import { motion, Variants } from "framer-motion";
@@ -34,7 +35,10 @@ const itemVariants: Variants = {
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="w-full py-20 lg:py-32 bg-slate-900 border-t border-slate-700">
+    <section
+      id="projects"
+      className="w-full py-20 lg:py-32 bg-slate-900 border-t border-slate-700"
+    >
       <div className="container mx-auto px-4 md:px-6">
         <motion.h2
           className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-16 text-white"
@@ -54,28 +58,46 @@ const ProjectsSection = () => {
           viewport={{ once: true, amount: 0.1 }}
         >
           {projectData.map((project) => (
-            <motion.div key={project.title} variants={itemVariants} whileHover={{ scale: 1.03, rotate: 0.3 }} whileTap={{ scale: 0.97, rotate: -0.3 }}>
-              <Card
-                className="flex flex-col h-full bg-slate-800 border-slate-700 text-gray-200 shadow-lg overflow-hidden group relative"
-              >
+            <motion.div
+              key={project.title}
+              variants={itemVariants}
+              whileHover={{ scale: 1.03, rotate: 0.3 }}
+              whileTap={{ scale: 0.97, rotate: -0.3 }}
+            >
+              <Card className="flex flex-col h-full bg-slate-800 border-slate-700 text-gray-200 shadow-lg overflow-hidden group relative">
+
                 <div className="relative h-48 w-full">
-                  <img
+                  <Image
                     src={project.imageUrl}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-all duration-500 ease-in-out"
+                    fill
+                    className="object-cover transition-all duration-500 ease-in-out"
                   />
 
                   <div className="lg:hidden absolute bottom-2 right-2 flex gap-2 z-20">
                     {project.liveUrl && (
-                      <Button size="sm" asChild className="bg-red-600 hover:bg-red-700">
-                        <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                      <Button
+                        size="sm"
+                        asChild
+                        className="bg-red-600 hover:bg-red-700"
+                      >
+                        <Link
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           <LuExternalLink className="mr-1 h-4 w-4" /> Live
                         </Link>
                       </Button>
                     )}
                     {project.githubUrl && (
                       <Button size="sm" variant="secondary" asChild>
-                        <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="bg-slate-800">
+                        <Link
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="bg-slate-800"
+                        >
                           <FaGithub className="mr-1 h-4 w-4" /> Code
                         </Link>
                       </Button>
@@ -89,18 +111,28 @@ const ProjectsSection = () => {
                           asChild
                           className="bg-red-600 hover:bg-red-700 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-in-out delay-100"
                         >
-                          <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                          <Link
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             View Project <LuExternalLink className="ml-2 h-4 w-4" />
                           </Link>
                         </Button>
                       )}
+
                       {project.githubUrl && (
                         <Button
                           asChild
                           variant="secondary"
                           className="opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-in-out delay-150"
                         >
-                          <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="bg-slate-800">
+                          <Link
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-slate-800"
+                          >
                             Source Code <FaGithub className="ml-2 h-4 w-4" />
                           </Link>
                         </Button>
@@ -110,8 +142,12 @@ const ProjectsSection = () => {
                 </div>
 
                 <CardHeader>
-                  <CardTitle className="text-xl font-bold text-white">{project.title}</CardTitle>
-                  <CardDescription className="pt-2 text-gray-400">{project.description}</CardDescription>
+                  <CardTitle className="text-xl font-bold text-white">
+                    {project.title}
+                  </CardTitle>
+                  <CardDescription className="pt-2 text-gray-400">
+                    {project.description}
+                  </CardDescription>
                 </CardHeader>
 
                 <CardContent className="flex-grow">
@@ -123,14 +159,18 @@ const ProjectsSection = () => {
                         whileHover={{
                           scale: 1.08,
                           y: -2,
-                          boxShadow: "0px 0px 10px rgba(255, 0, 0, 0.5)"
+                          boxShadow: "0px 0px 10px rgba(255, 0, 0, 0.5)",
                         }}
                         whileTap={{ scale: 0.92 }}
-                        transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 300,
+                          damping: 15,
+                        }}
                       >
                         <Badge
                           variant="secondary"
-                          className="bg-slate-700  text-gray-300 cursor-pointer select-none"
+                          className="bg-slate-700 text-gray-300 cursor-pointer select-none"
                         >
                           {tech}
                         </Badge>

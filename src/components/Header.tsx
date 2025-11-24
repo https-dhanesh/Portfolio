@@ -43,7 +43,7 @@ const Header = () => {
           ))}
           <Link href="/#contact" passHref>
             <button className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-200">
-              Let's Talk
+              <p>Let&apos;s talk</p>
             </button>
           </Link>
         </div>
@@ -76,7 +76,7 @@ const Header = () => {
                 className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-200 mt-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Let's Talk
+                <p>Let&apos;s a Talk</p>
               </button>
             </Link>
           </div>

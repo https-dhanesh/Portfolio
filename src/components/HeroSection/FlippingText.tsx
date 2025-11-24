@@ -20,21 +20,20 @@ const FlippingText = () => {
   const isHovered = true;
 
   useEffect(() => {
-    let interval: NodeJS.Timeout;
-    if (isHovered) {
-      interval = setInterval(() => {
-        setIndex((prev) => (prev + 1) % stackLayers.length); 
-      }, 3000);
-    }
+    const interval = setInterval(() => {
+      if (isHovered) {
+        setIndex((prev) => (prev + 1) % stackLayers.length);
+      }
+    }, 3000);
+
+    return () => clearInterval(interval); 
   }, [isHovered]);
 
   return (
-    <div
-      className="relative h-12 w-full max-w-2xl mx-auto cursor-pointer flex items-center" 
-    >
+    <div className="relative h-12 w-full max-w-2xl mx-auto cursor-pointer flex items-center">
       <AnimatePresence mode="wait">
         <motion.div
-          key={isHovered ? stackLayers[index] : "default"} 
+          key={isHovered ? stackLayers[index] : "default"}
           variants={slideVariants}
           initial="hidden"
           animate="visible"
@@ -44,7 +43,7 @@ const FlippingText = () => {
         >
           {isHovered ? (
             <span className="text-lg md:text-2xl text-red-500 max-w-2xl mx-auto italic">
-              {stackLayers[index]} 
+              {stackLayers[index]}
             </span>
           ) : (
             <p className="text-lg md:text-2xl text-gray-300 max-w-2xl mx-auto italic">

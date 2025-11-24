@@ -4,7 +4,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { FieldError, UseFormRegisterReturn } from "react-hook-form";
-import { FaCheck, FaExclamation } from "react-icons/fa";
+import { FaCheck} from "react-icons/fa";
 
 type AnimatedInputProps = {
   label: string;
