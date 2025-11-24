@@ -129,7 +129,7 @@ const AchievementsSection = () => {
                         >
                             <button
                                 onClick={() => setSelectedImage(null)}
-                                className="z-1 absolute -top-10 right-0 text-white text-3xl hover:text-red-400 transition"
+                                className="z-1 absolute right-5 -top-10 sm:right-0 text-white text-3xl hover:text-red-400 transition"
                             >
                                 ✕
                             </button>
