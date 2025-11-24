@@ -21,7 +21,7 @@ const achievements: Achievement[] = [
     {
         title: "Full Stack Development Internship in Java ",
         desc: "This certificate for given for completion of Full Stack Development Internship in Java , where I developed Java-based modules to optimize internal workflows, improving team efficiency.",
-        image: "/certificates/Microspectra_Internship.png",
+        image: "/certificates/Internship.png",
     },
     {
         title: "Resource Person - Hands-on Java Programming Workshop",
