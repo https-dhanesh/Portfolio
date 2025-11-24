@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import ProjectsSection from "@/components/ProjectsSection";
@@ -21,7 +22,7 @@ export default function Home() {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
+
     e.currentTarget.style.setProperty("--mouse-x", `${x}px`);
     e.currentTarget.style.setProperty("--mouse-y", `${y}px`);
   };
@@ -86,7 +87,7 @@ export default function Home() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeInOut" }}
           >
-            <div 
+            <div
               className="
                 relative 
                 w-80 h-80 md:w-96 md:h-96 
@@ -96,21 +97,23 @@ export default function Home() {
                 group 
               "
             >
-              <img 
+              <Image
                 src="/Passport photo.jpg"
-                alt="Dhanesh Shingade" 
+                alt="Dhanesh Shingade"
+                width={400}
+                height={400}
                 className="
-                  w-full h-full 
-                  object-cover 
-                  rounded-full 
-                  p-2 
-                  transition-all duration-500 
-                  group-hover:opacity-5
-                  group-hover:blur-sm
-                " 
+                    w-full h-full 
+                    object-cover 
+                    rounded-full 
+                    p-2 
+                    transition-all duration-500 
+                    group-hover:opacity-5
+                    group-hover:blur-sm
+                  "
               />
-              
-              <div 
+
+              <div
                 className="
                   absolute inset-0 
                   flex items-center justify-center 

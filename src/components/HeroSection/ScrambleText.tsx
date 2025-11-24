@@ -7,11 +7,11 @@ const ScrambleText = ({ text }: { text: string }) => {
     speed: 1.5,       
     tick: 1,       
     step: 1,         
-    scramble: 12,     
+    scramble: 12, 
+    seed: 42,    
     overflow: true,  
     chance: 0.8,       
-    seed: ['█', '▓', '▒', '░', ' '], 
-  } as any);
+  });
 
   return (
     <span
