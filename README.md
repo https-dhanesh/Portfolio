@@ -1,2 +1,2 @@
-### This is my portfolio [](https://co-working-platform.vercel.app)
+### This is my portfolio
 Designed in Next.js with framer-motion
