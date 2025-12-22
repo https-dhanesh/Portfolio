@@ -2,7 +2,7 @@
 import { Badge } from "@/components/ui/badge";
 import {FaJava, FaHtml5, FaReact, FaNodeJs, FaDocker, FaAws, FaGitAlt, FaGithub} from "react-icons/fa";
 import { 
-  SiJavascript, SiTypescript, SiExpress, SiNextdotjs, SiFlask, SiTailwindcss,SiMongodb, SiPostgresql, SiMysql, SiFirebase, SiSqlite, SiVercel, SiRender, SiKubernetes , SiPython 
+  SiJavascript, SiTypescript, SiExpress, SiNextdotjs, SiFlask, SiTailwindcss,SiMongodb, SiPostgresql, SiMysql, SiFirebase, SiSqlite, SiVercel, SiRender, SiKubernetes 
 } from "react-icons/si";
 
 const getSkillIcon = (skillName: string) => {
