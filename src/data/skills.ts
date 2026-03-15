@@ -13,6 +13,6 @@ export const skillCategories = [
   },
   {
     title: "DevOps & Cloud",
-    skills: ["AWS", "Docker", "Kubernetes"],
+    skills: ["AWS", "Docker", "Kubernetes","ArgoCD"],
   },
 ];

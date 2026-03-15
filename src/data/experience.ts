@@ -1,5 +1,11 @@
 export const experienceData = [
   {
+    role: "Python Developer - Data Engineer",
+    organization: "KaStack Labs",
+    date: "Dec 2025 - Feb 2026",
+    description: "Built scalable backend microservices and async data pipelines (Python, FastAPI, RabbitMQ, Redis) with AI-driven automation",
+  },
+  {
     role: "Technical Lead",
     organization: "ITESA DYPCOE",
     date: "June 2025 - Present",
@@ -7,15 +13,9 @@ export const experienceData = [
   },
   {
     role: "Cloud Coordinator",
-    organization: "GDG Cloud DYPCOE",
+    organization: "GDGC DYPCOE",
     date: "Oct 2024 - June 2025",
     description: "Organized and managed cloud-focused events and study groups.",
-  },
-  {
-    role: "Technical Coordinator",
-    organization: "ITESA DYPCOE",
-    date: "Sep 2024 - June 2025",
-    description: "Coordinated technical workshops and events for the IT student association.",
   },
   {
     role: "Full Stack Developer Intern",
