@@ -1,6 +1,13 @@
 
 export const projectData = [
   {
+    title: "CloudCost_Wise: DevSecOps & GitOps",
+    description: "Architected a secure, self-healing cost management platform on AWS EKS. Engineered a full DevSecOps pipeline featuring Shift-Left security with Trivy scanning, automated GitOps synchronization via ArgoCD, and asymmetric RSA encryption for secret management.",
+    tech: ["Terraform", "AWS EKS", "ArgoCD", "Trivy", "Sealed Secrets", "Node.js"],
+    githubUrl: "https://github.com/https-dhanesh/Cloud_Cost_Wise",
+    imageUrl: "/images/CloudCost_Architecture.jpg",
+  },
+  {
     title: "CoWork Platform",
     description: "A full-stack marketplace for discovering and managing niche coworking spaces, with secure authentication , role-based access , payment gateway and frontend data caching",
     tech: ["React", "TypeScript", "Node.js", "MongoDB", "Tailwind CSS","TanStack Query"],
