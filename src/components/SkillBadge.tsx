@@ -2,7 +2,7 @@
 import { Badge } from "@/components/ui/badge";
 import {FaJava, FaHtml5, FaReact, FaNodeJs, FaDocker, FaAws, FaGitAlt, FaGithub} from "react-icons/fa";
 import { 
-  SiJavascript, SiTypescript, SiExpress, SiNextdotjs, SiFlask, SiTailwindcss,SiMongodb, SiPostgresql, SiMysql, SiFirebase, SiSqlite, SiVercel, SiRender, SiKubernetes 
+  SiJavascript,SiGithubactions, SiTypescript, SiExpress, SiNextdotjs, SiFlask, SiTailwindcss,SiMongodb, SiPostgresql, SiMysql, SiFirebase, SiSqlite, SiVercel, SiRender, SiKubernetes 
 } from "react-icons/si";
 
 const getSkillIcon = (skillName: string) => {
@@ -62,7 +62,7 @@ const getSkillIcon = (skillName: string) => {
     case "github":
       return <FaGithub size={size} className="text-white" />;
     case "ci/cd":
-      return <SiKubernetes size={size} className="text-blue-400" />; 
+      return <SiGithubactions size={size} className="text-blue-400" />; 
     case "vercel":
       return <SiVercel size={size} className="text-white" />;
     case "render":
