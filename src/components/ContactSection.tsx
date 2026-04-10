@@ -1,10 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { motion, Variants } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { AnimatedInput } from "@/components/AnimatedInput";
 import toast from "react-hot-toast";
+import { sendEmail } from "@/app/actions/sendEmail";
 
 type FormData = {
   firstName: string;
@@ -20,21 +22,39 @@ const orbVariants: Variants = {
     transition: {
       duration: 18,
       repeat: Infinity,
-      ease: "linear"
-    }
-  }
+      ease: "linear",
+    },
+  },
 };
 
 const ContactSection = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, dirtyFields },
   } = useForm<FormData>({ mode: "onChange" });
 
-  const onSubmit = (data: FormData) => {
-    console.log(data);
-    toast.success("Message sent!");
+  const onSubmit = async (data: FormData) => {
+    setIsSubmitting(true);
+    const toastId = toast.loading("Sending your message...");
+
+    try {
+      const result = await sendEmail(data);
+
+      if (result.success) {
+        toast.success("Message sent! I'll get back to you soon.", { id: toastId });
+        reset(); 
+      } else {
+        throw new Error();
+      }
+    } catch (error) {
+      toast.error("Something went wrong. Please try again.", { id: toastId });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -54,29 +74,15 @@ const ContactSection = () => {
         </motion.h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
           <div className="relative flex justify-center items-center">
-
             <motion.div
               variants={orbVariants}
               animate="animate"
-              className="
-                w-72 h-72 md:w-80 md:h-80 
-                rounded-full 
-                bg-gradient-to-br from-red-600 via-red-700 to-red-700 
-                blur-3xl opacity-40
-                absolute
-              "
+              className="w-72 h-72 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-red-600 via-red-700 to-red-700 blur-3xl opacity-40 absolute"
             />
 
             <motion.div
-              className="
-                relative z-10 p-10 
-                bg-slate-800/40 backdrop-blur-xl 
-                border border-slate-700 
-                rounded-2xl shadow-2xl
-                max-w-sm text-center
-              "
+              className="relative z-10 p-10 bg-slate-800/40 backdrop-blur-xl border border-slate-700 rounded-2xl shadow-2xl max-w-sm text-center"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -85,12 +91,10 @@ const ContactSection = () => {
               <h3 className="text-2xl font-bold text-white mb-4">
                 Let’s Work Together 🤝
               </h3>
-
               <p className="text-gray-300 leading-relaxed">
-                Whether you have a project idea, collaboration request, or
-                just want to say hello — I’m always open to conversations.
+                Whether you have a project idea, collaboration request, or just
+                want to say hello — I’m always open to conversations.
               </p>
-
               <p className="mt-4 text-gray-400 text-sm">
                 I usually respond within 24 hours.
               </p>
@@ -152,15 +156,13 @@ const ContactSection = () => {
               isDirty={dirtyFields.message}
             />
 
-            <motion.div
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-            >
+            <motion.div whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.98 }}>
               <Button
                 type="submit"
-                className="w-full bg-red-600 hover:bg-red-700 shadow-lg"
+                disabled={isSubmitting}
+                className="w-full bg-red-600 hover:bg-red-700 shadow-lg disabled:opacity-70 disabled:cursor-not-allowed h-12 text-lg font-medium transition-all"
               >
-                Send Message
+                {isSubmitting ? "Sending..." : "Send Message"}
               </Button>
             </motion.div>
           </motion.form>
