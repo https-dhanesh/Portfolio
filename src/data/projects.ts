@@ -20,7 +20,7 @@ export const projectData = [
     description: "Architected a multi-node K8s cluster , Automated lifecycle management with ArgoCD  ensuring 100% Git-to-Cluster synchronization and configured Nginx Ingress for efficient Routing ",
     tech: ["Kubernetes", "ArgoCD", "Docker", "Nginx Ingress"],
     githubUrl: "https://github.com/https-dhanesh/devops-go-web-app",
-    imageUrl: "/images/Devops_Go_Web.jpg",
+    imageUrl: "/images/pipeline.jpg",
   },
   {
     title: "Cloud Native Microservices",
