@@ -11,7 +11,6 @@ export const projectData = [
     title: "CoWork Platform",
     description: "A full-stack marketplace for discovering and managing niche coworking spaces, with secure authentication , role-based access , payment gateway and frontend data caching",
     tech: ["React", "TypeScript", "Node.js", "MongoDB", "Tailwind CSS","TanStack Query"],
-    liveUrl: "https://coworking.dhanesh.in",
     githubUrl: "https://github.com/https-dhanesh/Coworking-platform",
     imageUrl: "/images/cowork.png",
   },

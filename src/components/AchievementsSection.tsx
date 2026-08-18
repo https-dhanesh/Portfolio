@@ -1,27 +1,30 @@
 "use client";
 
-import { motion , AnimatePresence} from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 
-
 type Achievement = {
-title: string;
-desc: string;
-image: string;
+    title: string;
+    desc: string;
+    image: string;
 };
 
-
 const achievements: Achievement[] = [
+    {
+        title: "AWS Certified: AI Practitioner",
+        desc: "Validates foundational understanding of artificial intelligence, machine learning, and cloud-based AI services on AWS.",
+        image: "/certificates/AWS AI Practitioner.png",
+    },
+    {
+        title: "Microsoft Certified: Azure Fundamentals (AZ-900)",
+        desc: "Demonstrates foundational knowledge of cloud concepts, core Azure services, security, privacy, compliance, and pricing.",
+        image: "/certificates/Azure AZ-900.png", 
+    },
     {
         title: "MSBTE State Level Technical Quiz Competition - Winner",
         desc: "This certificate of merit was awarded for winning the First Prize in a State Level Technical Quiz Competition amongst teams from 30 colleges.",
         image: "/certificates/Quiz Competition.jpg",
-    },
-    {
-        title: "Full Stack Development Internship in Java ",
-        desc: "This certificate for given for completion of Full Stack Development Internship in Java , where I developed Java-based modules to optimize internal workflows, improving team efficiency.",
-        image: "/certificates/Internship.png",
     },
     {
         title: "Resource Person - Hands-on Java Programming Workshop",
@@ -30,21 +33,33 @@ const achievements: Achievement[] = [
     },
     {
         title: "Technical Lead - ITESA (2025-26)",
-        desc: "This certificate is given for serving as Technical Lead at ITESA , where I am responsible for conducting various technical activities throughout the year , leading a tech-enthusiastic team of junior , converting ideas into reality with technical aspects.",
+        desc: "This certificate is given for serving as Technical Lead at ITESA, where I am responsible for conducting various technical activities throughout the year, leading a tech-enthusiastic team of juniors, converting ideas into reality with technical aspects.",
         image: "/certificates/ITESA-TECH_LEAD.jpg",
     },
     {
-        title: "Cloud Coordinator - GDGC DYPCOE ( 2024-25)",
+        title: "Cloud Coordinator - GDGC DYPCOE (2024-25)",
         desc: "This role typically involved contributing to community initiatives, events, and workshops focused on Google Cloud Platform (GCP) technologies.",
         image: "/certificates/GDGC CERT.jpg",
     },
-    {
-        title: "NPTEL Data Base Management System (DBMS) Certification",
-        desc: "An 8-week course on Data Base Management System (DBMS) with a consolidated score of 65% (Elite). The course covers the foundational theoretical and practical principles of designing and using database systems.",
-        image: "/certificates/NPTEL.png",
-    },
-];
+    // {
 
+    //     title: "NPTEL Data Base Management System (DBMS) Certification",
+
+    //     desc: "An 8-week course on Data Base Management System (DBMS) with a consolidated score of 65% (Elite). The course covers the foundational theoretical and practical principles of designing and using database systems.",
+
+    //     image: "/certificates/NPTEL.png",
+
+    // },
+    // {
+
+    //     title: "Full Stack Development Internship in Java ",
+
+    //     desc: "This certificate for given for completion of Full Stack Development Internship in Java , where I developed Java-based modules to optimize internal workflows, improving team efficiency.",
+
+    //     image: "/certificates/Internship.png",
+
+    // },
+];
 
 const AchievementsSection = () => {
     const [selectedImage, setSelectedImage] = useState<Achievement | null>(null);
@@ -74,39 +89,37 @@ const AchievementsSection = () => {
                         <motion.div
                             key={i}
                             className="
-                bg-slate-800/40 
-                backdrop-blur-xl 
-                border border-slate-700 
-                rounded-2xl 
-                shadow-xl 
-                overflow-hidden 
-                hover:shadow-red-500/20 
-                transition-all 
-                duration-300
-              "
+                                bg-slate-800/40 
+                                backdrop-blur-xl 
+                                border border-slate-700 
+                                rounded-2xl 
+                                shadow-xl 
+                                overflow-hidden 
+                                hover:shadow-red-500/20 
+                                transition-all 
+                                duration-300
+                            "
                             whileHover={{ scale: 1.03 }}
                             whileTap={{ scale: 0.97 }}
                             transition={{ duration: 0.3 }}
                         >
-                                <>
-                                    <div className="w-full h-48 relative" onClick={() => setSelectedImage(card)}>
-                                        <Image
-                                            src={card.image}
-                                            alt={card.title}
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    </div>
+                            <div className="w-full h-48 relative cursor-pointer" onClick={() => setSelectedImage(card)}>
+                                <Image
+                                    src={card.image}
+                                    alt={card.title}
+                                    fill
+                                    className="object-cover"
+                                />
+                            </div>
 
-                                    <div className="p-5">
-                                        <h3 className="text-lg font-semibold text-white">
-                                            {card.title}
-                                        </h3>
-                                        <p className="text-gray-300 text-sm mt-2">
-                                            {card.desc}
-                                        </p>
-                                    </div>
-                                </>
+                            <div className="p-5">
+                                <h3 className="text-lg font-semibold text-white">
+                                    {card.title}
+                                </h3>
+                                <p className="text-gray-300 text-sm mt-2">
+                                    {card.desc}
+                                </p>
+                            </div>
                         </motion.div>
                     ))}
                 </motion.div>
@@ -129,7 +142,7 @@ const AchievementsSection = () => {
                         >
                             <button
                                 onClick={() => setSelectedImage(null)}
-                                className="z-1 absolute right-10 -top-10 sm:right-0 text-white text-3xl hover:text-red-400 transition"
+                                className="z-10 absolute right-10 -top-10 sm:right-0 text-white text-3xl hover:text-red-400 transition"
                             >
                                 ✕
                             </button>
