@@ -39,6 +39,6 @@ export const projectData = [
     description: "Architected an event-driven supply chain tracking platform utilizing RabbitMQ topic exchanges for decoupled messaging, Dragonfly sorted sets for SLA priority queuing, and EventStoreDB for audit logging. Built with Node.js microservices and RBAC role scoping across manufacturers, carriers, and warehouses.",
     tech: ["Node.js", "TypeScript", "RabbitMQ", "Dragonfly", "EventStoreDB", "Docker"],
     githubUrl: "https://github.com/https-dhanesh/LogiTrace",
-    imageUrl: "/images/LogiTrace.png",
+    imageUrl: "/images/Logitrace.png",
   },
 ];
