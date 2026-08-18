@@ -75,21 +75,6 @@ const ProjectsSection = () => {
                   />
 
                   <div className="lg:hidden absolute bottom-2 right-2 flex gap-2 z-20">
-                    {project.liveUrl && (
-                      <Button
-                        size="sm"
-                        asChild
-                        className="bg-red-600 hover:bg-red-700"
-                      >
-                        <Link
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <LuExternalLink className="mr-1 h-4 w-4" /> Live
-                        </Link>
-                      </Button>
-                    )}
                     {project.githubUrl && (
                       <Button size="sm" variant="secondary" asChild>
                         <Link
@@ -106,20 +91,6 @@ const ProjectsSection = () => {
 
                   <div className="absolute inset-0 bg-black/70 items-center justify-center hidden lg:flex opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out">
                     <div className="flex gap-3">
-                      {project.liveUrl && (
-                        <Button
-                          asChild
-                          className="bg-red-600 hover:bg-red-700 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-in-out delay-100"
-                        >
-                          <Link
-                            href={project.liveUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            View Project <LuExternalLink className="ml-2 h-4 w-4" />
-                          </Link>
-                        </Button>
-                      )}
 
                       {project.githubUrl && (
                         <Button
