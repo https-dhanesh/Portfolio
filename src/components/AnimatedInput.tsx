@@ -20,11 +20,11 @@ type AnimatedInputProps = {
 const wiggleVariants: Variants = {
   calm: {
     x: 0,
-    transition: { duration: 0.4, ease: "easeInOut" }
+    transition: { duration: 0.2, ease: "easeInOut" }
   },
   wiggle: {
     x: [0, -5, 5, -5, 5, 0],
-    transition: { duration: 0.4, ease: "easeInOut" }
+    transition: { duration: 0.2, ease: "easeInOut" }
   }
 };
 
