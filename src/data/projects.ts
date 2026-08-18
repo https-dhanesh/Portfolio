@@ -1,5 +1,11 @@
-
 export const projectData = [
+  {
+    title: "Telemetry Guardian: DevSecOps Pipeline",
+    description: "Engineered an automated end-to-end CI/CD pipeline in Jenkins utilizing managed JDK 24/Maven tools to run validation tests and compile source modules. Integrated SonarQube SAST security gates via active API status polling to securely assemble production-ready multi-stage Docker container images.",
+    tech: ["Jenkins", "SonarQube", "Java 24", "Maven", "Docker"],
+    githubUrl: "https://github.com/https-dhanesh/telemetry-guardian",
+    imageUrl: "/images/stage_view.png",
+  },
   {
     title: "CloudCost_Wise: DevSecOps & GitOps",
     description: "Architected a secure, self-healing cost management platform on AWS EKS. Engineered a full DevSecOps pipeline featuring Shift-Left security with Trivy scanning, automated GitOps synchronization via ArgoCD, and asymmetric RSA encryption for secret management.",
@@ -27,5 +33,12 @@ export const projectData = [
     tech: ["Amazon EKS", "Apache Kafka", "Keycloak", "Spring Boot"],
     githubUrl: "https://github.com/https-dhanesh/Fitness_Advisor_MicroServices",
     imageUrl: "/images/Fitness_Advisor.jpg",
+  },
+  {
+    title: "LogiTrace (In-Dev)",
+    description: "Architected an event-driven supply chain tracking platform utilizing RabbitMQ topic exchanges for decoupled messaging, Dragonfly sorted sets for SLA priority queuing, and EventStoreDB for audit logging. Built with Node.js microservices and RBAC role scoping across manufacturers, carriers, and warehouses.",
+    tech: ["Node.js", "TypeScript", "RabbitMQ", "Dragonfly", "EventStoreDB", "Docker"],
+    githubUrl: "https://github.com/https-dhanesh/LogiTrace",
+    imageUrl: "/images/LogiTrace.png",
   },
 ];
